@@ -1,0 +1,40 @@
+.sidebar {
+    background-color: #242323;
+    width: 20%;
+    /* height: 86vh; */
+    height: 150vh;
+    /* display: flex; */
+}
+
+.sidebar > .home h3 {
+    color: white;
+    /* padding: 4rem; */
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.home {
+    padding: 2rem;
+}
+
+.admin {
+    background-color: #E6E6E6
+}
+
+.table-Product {
+    /* margin-left: 19rem; */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.table-Product > h3 {
+    text-align: center;
+}
+
+.main-content {
+    position: absolute;
+    margin-left: 22rem;
+}

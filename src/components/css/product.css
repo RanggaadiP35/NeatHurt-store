@@ -1,0 +1,90 @@
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.body-product {
+    /* display: flex;
+    flex-wrap: nowrap; */
+    width: 100%;
+    padding: 2rem;
+    /* justify-content: space-between; */
+    row-gap: 2rem;
+}
+
+.card-id {
+    /* margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px; */
+}
+
+.card-img-top {
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: 14%; */  
+    /* margin-bottom: 17%; */
+    width: 100%;
+    height: 59vh;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.size {
+    display: flex;
+    justify-content: end;
+    margin: 0 21px 0px 0px;
+}
+
+.a-product {
+    text-decoration: none;
+}
+
+
+/* Component Detail */
+
+
+.cart-detail {
+    display: flex;
+    gap: 6rem;
+    margin-top: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.card-img-detail{
+    display: block;
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.selected{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: 66px;
+    height: 2.5rem;
+}
+
+.detail-cart > button {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    width: 331px;
+    height: 54px;
+}
+
+button {
+    background-color: transparent;
+    color: #333; /* Warna teks tombol yang tidak dipilih */
+    border: 0px solid #ccc; /* Gaya border tombol yang tidak dipilih */
+    width: 66px;
+    height: 2.5rem;
+  }
+  

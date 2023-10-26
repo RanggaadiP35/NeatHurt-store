@@ -1,0 +1,151 @@
+.section-body {
+    background-image: url(../src/assets/images/m3.jpeg);
+    /* width: 100%; */
+    /* height: 100%; */
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.section-body>.container {
+    margin-top: 12rem;
+    /* color: #fff; */
+}
+
+.section-body>.container h1 {
+    text-align: center;
+    font-family: inherit;
+    /* color: #274357; */
+    font-size: 3rem;
+    color: white;
+}
+
+.section-body>.container p {
+    text-align: center;
+    font-family: cursive;
+    color: white;
+}
+
+.footer {
+    /* background-color: #000; */
+    background-color: #212529;
+    padding: 10px;
+}
+
+.title-footer {
+    color: #fff;
+}
+
+.title-footer>h3 {
+    font-size: 1rem;
+}
+
+.title-footer>h4 {
+    font-size: 1.5rem;
+    color: #7c9ab6;
+}
+
+.lName {
+    color: #98a1c0;
+}
+
+.menu>a {
+    color: #fff;
+}
+
+.menu:hover {
+    color: #62849f;
+}
+
+.instagram>a,
+svg {
+    color: #fff;
+    text-decoration: none;
+}
+
+.instagram:hover {
+    color: #62849f;
+}
+
+.threads>a,
+svg {
+    color: #fff;
+    text-decoration: none;
+}
+
+.github>a,
+svg {
+    color: #fff;
+    text-decoration: none;
+}
+
+.me {
+    color: #fff;
+}
+
+.copy {
+    margin-top: 6rem;
+    text-align: center;
+    color: white;
+}
+
+.copy label>b {
+    color: #62849f;
+}
+
+/* styling contac us */
+
+/* #root {
+    background-image: linear-gradient(45deg, #bccfe0, #bccfe0, #f2d4d9, #f2d4d9);
+    background-attachment: fixed;
+}
+
+.contac-body {
+    min-height: 90.5vh
+} */
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0 !important;
+    align-items: center;
+}
+
+.img-section {
+    width: 100%;
+    height: 89vh;
+}
+
+.section-text > h1 {
+    position: absolute;
+    color: white;
+    font-size: 4rem;
+    margin-top: 14rem;
+    /* margin-left: 1rem; */
+    padding: 1rem;
+    font-family: revert;
+    text-shadow: 4px 2px 4px black;
+}
+
+.section-text > p {
+    position: absolute;
+    color: white;
+    margin-top: 19rem;
+    padding: 1rem;
+    text-shadow: 1px 1px 1px BLACK;
+}
+
+.section-text > .button {
+    color: white;
+    position: absolute;
+    margin-top: 25rem;
+    margin-left: 1rem;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, -0.67);
+    backdrop-filter: blur(8.5px);
+    width: 19%;
+    height: 8%;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+}

@@ -1,0 +1,18 @@
+.page-login{
+    width: 50%;
+    margin: auto;
+    height: 90vh;
+}
+
+.text-login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 17px;
+    height: 8%;
+}
