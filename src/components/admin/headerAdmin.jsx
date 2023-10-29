@@ -23,7 +23,7 @@ const Header = () => {
                     </div>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className='icon-nav'>
-                            <NavLink to="/user" className='nav-link nav-image' aria-current="page"><img className='user-navbar' src={user} alt='cart' /><p>{storedUsername}</p></NavLink>
+                            <NavLink to="/Login-Admin" className='nav-link nav-image image-header' aria-current="page"><img className='user-navbar' src={user} alt='cart' /><p>{storedUsername}</p></NavLink>
                             {/* <NavLink to="/cart" className='nav-link nav-image' aria-current="page"><img className='cart-navbar' src={cart} alt='cart' /></NavLink> */}
                         </div>
                     </div>

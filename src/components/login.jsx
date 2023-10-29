@@ -59,18 +59,14 @@ function Login() {
     };
     return (
         <div className='page-login'>
-            <div className='text-login'>
-                {isLoggedIn ? (
-                    <h3>You are currently logged in</h3>
-                ) : (
+            {isLoggedIn ? (
+                <h4 style={{ textAlign: "center", display: "block" }}>You are currently logged in</h4>
+            ) : (
+                <div className='text-login'>
                     <h3>Welcome Back</h3>
-                )}
-                {isLoggedIn ? (
-                    <h3></h3>
-                ) : (
-                <Link to='/Registrasi'><h4>Register</h4></Link>
-                )}
-            </div>
+                    <Link to='/Registrasi'><h4>Register</h4></Link>
+                </div>
+            )}
             {isLoggedIn ? (
                 <p></p>
             ) : (

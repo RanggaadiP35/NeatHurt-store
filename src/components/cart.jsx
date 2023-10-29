@@ -83,7 +83,7 @@ const Cart = () => {
                         {isLoggedIn ? (
                             <div>
                             {data.length === 0 ? (
-                                <p>Keranjang Anda kosong.</p>
+                                <p style={{textAlign:"center"}}>Keranjang Anda kosong.</p>
                             ) : (
                                 <div>
                                     <h5>Product</h5>
