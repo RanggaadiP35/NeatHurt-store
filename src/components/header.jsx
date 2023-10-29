@@ -81,7 +81,7 @@ const Header = () => {
                             <img className='logo' src={gambar} alt='logo' />
                         </Link>
                         <NavLink to="/Shop" className='nav-link' aria-current="page">Shop</NavLink>
-                        <NavLink to="/Team" className='nav-link' aria-current="page">Team</NavLink>
+                        {/* <NavLink to="/Team" className='nav-link' aria-current="page">Team</NavLink> */}
                     </div>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className='icon-nav'>
@@ -95,7 +95,7 @@ const Header = () => {
                                 <p></p>
                             )}
                             <NavLink to="/user" className='nav-link nav-image' aria-current="page"><img className='user-navbar' src={user} alt='cart' /></NavLink>
-                            <p style={{ position: "absolute", marginTop: "2.5rem", fontSize:"12px" }}>{userName}</p>
+                            <p style={{ position: "absolute", marginTop: "2.2rem", fontSize:"12px" }}>{userName}</p>
                         </div>
                     </div>
                 </div>

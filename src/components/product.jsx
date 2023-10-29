@@ -53,7 +53,7 @@ const Product = () => {
                                     <img className="card-img-top" src={item.image} alt="Card image cap" />
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{item.category} {item.name}</h5>
+                                    <h6 className="card-title">{item.category} {item.name}</h6>
                                     <p className="card-text">
                                         Rp. {priceSplitter(item.price)}
                                     </p>
