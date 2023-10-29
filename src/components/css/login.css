@@ -16,3 +16,15 @@
     border-radius: 17px;
     height: 8%;
 }
+
+.text-login > a {
+    color: black;
+}
+
+.btn-logout {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 17px;
+    height: 8%;
+}

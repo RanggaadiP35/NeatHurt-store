@@ -37,4 +37,21 @@ a {
 .main-content {
     position: absolute;
     margin-left: 22rem;
+    width: 70%;
+}
+
+.btn-danger {
+    width: auto;
+}
+
+.btn-add {
+    width: auto;
+}
+
+.card-input {
+    display: block;
+}
+
+.form-add > h3 {
+    text-align: center;
 }
