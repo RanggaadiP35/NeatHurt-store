@@ -1,0 +1,20 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../components/css/header.css';
+// import gambar from '../assets/images/element1.jpeg';
+
+import Sidebar from '../components/admin/sidebar';
+import ProductAdmin from '../components/admin/product';
+import Header from '../components/admin/headerAdmin';
+import EditProduct from '../components/admin/editProduct';
+
+const EditProductAdmin = () => {
+    return(
+        <>
+        <Header></Header>
+        {/* <Sidebar/> */}
+        <EditProduct></EditProduct>
+        </>
+    )
+}
+
+export default EditProductAdmin
