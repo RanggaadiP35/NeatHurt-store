@@ -16,6 +16,10 @@ import Admin from './pages/Admin';
 import ProductPages from './pages/Product';
 import DetailPages from './pages/ProductDetail';
 import LoginPages from './pages/Login';
+import AddProductAdmin from './pages/AddProduct';
+import CartPages from './pages/ProductCart';
+import EditProductAdmin from './pages/EditProduct';
+import RegisterPages from './pages/Register';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,11 +31,14 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPages />} />
           <Route path='/Shop' element={<ProductPages />} />
-          <Route path='/Cart' element={<Cart />} />
+          <Route path='/Cart' element={<CartPages />} />
           <Route path='/Product-Detail/:itemId' element={<DetailPages />} />
           <Route path='/User' element={<LoginPages />} />
           <Route path='/Admin' element={<Admin />} />
           <Route path='/Product-Admin' element={<ProductAdmin />} />
+          <Route path='/Add-Product' element={<AddProductAdmin />} />
+          <Route path='/edit/:itemId' element={<EditProductAdmin />} />
+          <Route path='/Registrasi' element={<RegisterPages />} />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>
