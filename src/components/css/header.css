@@ -52,3 +52,10 @@
     border-radius: 7px;
     margin-left: -1.8rem;
 }
+
+/* header admin styling */
+
+.image-header {
+    margin-left: 1rem;
+    width: 31%;
+}
