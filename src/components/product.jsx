@@ -23,7 +23,7 @@ const Product = () => {
             axios.get(API_URL + "/list-product")
                 .then((response) => {
                     setData(response.data);
-                    // console.log(response.data);
+                    console.log(response.data);
                 })
                 .catch((error) => {
                     console.error('Kesalahan:', error);
@@ -37,6 +37,9 @@ const Product = () => {
         // Ganti URL dengan URL halaman edit yang sesuai
         window.location.href = `/Product-Detail/${itemId}`;
     };
+
+    const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
     return (
         <>
             {/* <Header></Header> */}
@@ -50,9 +53,9 @@ const Product = () => {
                                     <img className="card-img-top" src={item.image} alt="Card image cap" />
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">T-shirt {item.name}</h5>
+                                    <h5 className="card-title">{item.category} {item.name}</h5>
                                     <p className="card-text">
-                                        Rp. {item.price}
+                                        Rp. {priceSplitter(item.price)}
                                     </p>
 
                                 </div>

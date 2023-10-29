@@ -42,55 +42,21 @@ const ProductAdmin = () => {
                 });
         }
     };
-    return (
-        // <div className="admin">
-        //     <div className="sidebar">
-        //         <div className='home'>
-        //             {/* <img src={home} alt='home' /> */}
-        //             <Link to="/Dashboard"><h3>Dashboard</h3></Link>
-        //             <Link to="/Product-Admin"><h3>Product</h3></Link>
-        //         </div>
-        //         <div className='table-Product'>
-        //             <h1>List Product</h1>
-        //             <table className="table table-striped">
-        //                 <thead>
-        //                     <tr>
-        //                         <th>Nomor</th>
-        //                         <th>Product Name</th>
-        //                         <th>Product Category</th>
-        //                         <th>Product Feshness</th>
-        //                         <th>Image</th>
-        //                         <th>Product Price</th>
-        //                         <th>Action</th>
-        //                     </tr>
-        //                 </thead>
-        //                 <tbody>
-        //                     {data.map((item, index) => (
-        //                         <tr key={item.uuid}>
-        //                             <td>{item.id}</td>
-        //                             <td>{item.name}</td>
-        //                             <td>{item.category}</td>
-        //                             <td>{item.freshness}</td>
-        //                             <td><img src={item.image}/></td>
-        //                             <td>{item.price}</td>
-        //                             <td>
-        //                                 <Link className="btn btn-warning" to={`/detail/${item.uuid}`} state={{ detailData: item }}>Detail</Link>&nbsp;
-        //                                 <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button>
-        //                             </td>
-        //                         </tr>
-        //                     ))}
-        //                 </tbody>
-        //             </table>
-        //         </div>
-        //     </div>
-        // </div>
 
+    const handleEdit = (itemId) => {
+        // Ganti URL dengan URL halaman edit yang sesuai
+        window.location.href = `/edit/${itemId}`;
+    };
+
+    const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+    return (
         <div className='side'>
             <div className='main-content'>
                 <div className='card mt-3'>
                     <div className='card-body'>
                         <div className='table-Product'>
-                            <button className='btn btn-warning'>Add</button>
+                            <Link to='/Add-Product'><button className='btn btn-warning'>Add</button></Link>
                             <h3>List Product</h3>
                             <table className="table table-striped">
                                 <thead>
@@ -98,7 +64,7 @@ const ProductAdmin = () => {
                                         <th>No</th>
                                         <th>Product Name</th>
                                         <th>Product Category</th>
-                                        <th>Product Feshness</th>
+                                        <th>Product Description</th>
                                         <th>Image</th>
                                         <th>Product Price</th>
                                         <th>Action</th>
@@ -106,13 +72,13 @@ const ProductAdmin = () => {
                                 </thead>
                                 <tbody>
                                     {data.map((item, index) => (
-                                        <tr key={item.uuid}>
+                                        <tr key={item.id}>
                                             <td>{index + 1}</td>
                                             <td>{item.name}</td>
                                             <td>{item.category}</td>
-                                            <td>{item.freshness}</td>
+                                            <td>{item.description}</td>
                                             <td><img src={item.image} style={{ width: "50%" }} /></td>
-                                            <td>Rp.{item.price}</td>
+                                            <td>Rp.{priceSplitter(item.price)}</td>
                                             <td>
                                                 <button className="btn btn-danger" onClick={() => handleDelete(item.id)}>Delete</button>&nbsp;
                                                 {/* <Link className="btn btn-success" to={`/detail/${item.id}`} state={{ detailData: item }}>Edit</Link>&nbsp; */}

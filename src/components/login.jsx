@@ -1,53 +1,103 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/login.css'
 
 function Login() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLogin = () => {
-        if (username === 'user' && password === '123') {
-            // Jika login berhasil, simpan informasi login dalam state lokal
-            localStorage.setItem('username', username, 'password', password);
-            navigate('/Shop');
-        } else if(username === 'admin' && password === '123'){
-            navigate('/Admin');
-        } else {
-            setErrorMessage('Username atau password salah. Silakan coba lagi.');
-        }
+    const firebaseConfig = {
+        apiKey: "AIzaSyDsR1TlgN3CpdgsKgfknMX3Fp_Yy7KgxYs",
+        authDomain: "neathurt-store.firebaseapp.com",
+        projectId: "neathurt-store",
+        storageBucket: "neathurt-store.appspot.com",
+        messagingSenderId: "924356459068",
+        appId: "1:924356459068:web:6ccba918912e4f0b06a139"
     };
 
-    const storedUsername = localStorage.getItem('username');
-    const storedPassword = localStorage.getItem('password');
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const handleLogin = async () => {
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            alert('Pengguna berhasil Login!');
+            navigate('/Shop')
+        } catch (error) {
+            alert('Gagal mendaftar: ' + error.message);
+        }
+    }
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Pengguna telah login
+                setIsLoggedIn(true);
+            } else {
+                // Pengguna belum login
+                setIsLoggedIn(false);
+            }
+        });
+    }, []);
+
+    const handleLogout = () => {
+        signOut(auth) // Memanggil metode signOut
+            .then(() => {
+                alert('Anda telah logout')
+                navigate('/User');
+            })
+            .catch((error) => {
+                // Penanganan kesalahan jika logout gagal
+                console.error('Gagal logout:', error);
+            });
+    };
     return (
         <div className='page-login'>
             <div className='text-login'>
-                <h3>Welcome Back</h3>
-                <h4>Register</h4>
+                {isLoggedIn ? (
+                    <h3>You are currently logged in</h3>
+                ) : (
+                    <h3>Welcome Back</h3>
+                )}
+                {isLoggedIn ? (
+                    <h3></h3>
+                ) : (
+                <Link to='/Registrasi'><h4>Register</h4></Link>
+                )}
             </div>
-            <input
-                type="text"
-                className='form-control'
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            /><br />
-            <input
-                type="password"
-                className='form-control'
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+            {isLoggedIn ? (
+                <p></p>
+            ) : (
+                <div className='login-input'>
+                    <input
+                        type="email"
+                        className='form-control'
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    /><br />
+                    <input
+                        type="password"
+                        className='form-control'
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+            )}
             <br />
-            <button className='btn-login' onClick={handleLogin}>LOGIN</button>
-
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {isLoggedIn ? (
+                <button className='btn-logout' onClick={handleLogout}>LOGOUT</button>
+            ) : (
+                <button className='btn-login' onClick={handleLogin}>LOGIN</button>
+            )}
+            {/* <button className='btn-login' onClick={handleLogin}>LOGIN</button> */}
         </div>
     );
 }
