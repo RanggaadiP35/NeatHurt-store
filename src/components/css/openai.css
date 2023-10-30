@@ -1,0 +1,12 @@
+.main-openai {
+    margin: auto;
+    width: 32rem;
+}
+
+.btn-openai{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 17px;
+    height: 39px;
+}
