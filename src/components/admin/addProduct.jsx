@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
-import cloudinary from 'cloudinary-core';
-// import cloudinary from 'cloudinary';
+import { Widget } from "@uploadcare/react-widget";
 
 import { Alert } from "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,15 +21,10 @@ const AddProduct = () => {
     //     // console.log(setFile);
     // }
 
-    const imageUploade = (e) =>{
-        const file = e.target.files[0];
-        setImage(file)
-    }
-    const cloudinaryCore = new cloudinary.Cloudinary({ 
-        cloud_name: 'der3odiat',
-        api_key: '162116382368168',
-        api_secret: '-6-qR3I1WzhZ-a5w9nbRLHnm1l0'
-     });
+    // const imageUploade = (e) => {
+    //     const file = e.target.files[0];
+    //     setImage(file)
+    // }
 
     const [data, setData] = useState({
         name: "",
@@ -48,6 +42,13 @@ const AddProduct = () => {
         });
     };
 
+    const handleImageUpload = (info) => {
+        setData({
+            ...data,
+            image: info.cdnUrl,
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -56,14 +57,14 @@ const AddProduct = () => {
             category: data.category,
             description: data.description,
             price: data.price,
-            image: imageFile,
+            image: data.image,
         };
 
         axios.post("https://652808c8931d71583df1c625.mockapi.io/list-product", userData)
             .then((response) => {
                 console.log(response)
                 alert('Berhasil menambahkan produk');
-                // navigate('/Admin');
+                navigate('/Admin');
             });
     };
 
@@ -103,13 +104,20 @@ const AddProduct = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="image">Image of product</label>
-                                    <input
+                                    <br/>
+                                    {/* <input
                                         type="file"
                                         className="form-control"
                                         id="image"
                                         name="image"
                                         accept=".png" // Hanya file dengan ekstensi .png yang diperbolehkan
                                         onChange={(e) => imageUploade(e)}
+                                    /> */}
+                                    <Widget
+                                        crop="free, 16:9, 4:3, 5:4, 1:1"
+                                        publicKey="7ef5eb777beb1a741b6f"
+                                        clearable
+                                        onChange={(info) => handleImageUpload(info)}
                                     />
                                 </div>
                                 <div>

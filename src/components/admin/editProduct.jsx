@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import { useNavigate, useParams, Link } from 'react-router-dom';
-// import imageUpload from "../config/cloudinary";
+import { Widget } from "@uploadcare/react-widget";
 
 import { Alert } from "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,6 +49,13 @@ const EditProduct = () => {
         });
     };
 
+    const handleImageUpload = (info) => {
+        setData({
+            ...data,
+            image: info.cdnUrl,
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const userData = {
@@ -56,7 +63,7 @@ const EditProduct = () => {
             category: data.category,
             description: data.description,
             price: data.price,
-            image: data.selectedFile,
+            image: data.image,
         };
 
         axios.put(`https://652808c8931d71583df1c625.mockapi.io/list-product/${itemId}`, userData)
@@ -103,13 +110,23 @@ const EditProduct = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="image">Image of product</label>
-                                    <input
+                                    <br/>
+                                    {/* <input
                                         type="file"
                                         className="form-control"
                                         id="image"
                                         name="image"
                                         accept=".png"
                                         onChange={setImg}
+                                    /> */}
+                                    <img src={data.image} alt="gambar-product" style={{width:"22%", height:"50vh"}}/>
+                                    <br/>
+                                    <Widget
+                                        crop="free, 16:9, 4:3, 5:4, 1:1"
+                                        publicKey="7ef5eb777beb1a741b6f"
+                                        clearable
+                                        onChange={(info) => handleImageUpload(info)}
+                                        defaultValue={data.image}
                                     />
                                 </div>
                                 <div>

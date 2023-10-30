@@ -65,7 +65,7 @@ const ProductAdmin = () => {
                                         <th>Product Name</th>
                                         <th>Product Category</th>
                                         <th>Product Description</th>
-                                        <th>Image</th>
+                                        <th style={{width:"100px"}}>Image</th>
                                         <th>Product Price</th>
                                         <th>Action</th>
                                     </tr>
