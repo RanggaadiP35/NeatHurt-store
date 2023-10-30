@@ -68,6 +68,7 @@ const Footer = () => {
                                 <NavLink to="/Shop" className='nav-link' aria-current="page">Shop</NavLink>
                                 {/* <NavLink to="/Team" className='nav-link' aria-current="page">Team</NavLink> */}
                                 <NavLink to="/Login-Admin" className='nav-link' aria-current="page">Login Admin</NavLink>
+                                <NavLink to="/Tanya-AI" className='nav-link' aria-current="page">Tanya AI</NavLink>
                                 {/* <a className="nav-link active" aria-current="page" href="#">
                                     Home
                                 </a>
