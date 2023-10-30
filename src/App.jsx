@@ -21,6 +21,7 @@ import CartPages from './pages/ProductCart';
 import EditProductAdmin from './pages/EditProduct';
 import RegisterPages from './pages/Register';
 import LoginAdmin from './pages/LoginAdmin';
+import OpenAiPages from './pages/OpenAI';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -41,6 +42,7 @@ function App() {
           <Route path='/edit/:itemId' element={<EditProductAdmin />} />
           <Route path='/Registrasi' element={<RegisterPages />} />
           <Route path='/Login-Admin' element={<LoginAdmin />} />
+          <Route path='/Tanya-AI' element={<OpenAiPages />} />
         </Routes>
         {/* <Footer></Footer> */}
       </BrowserRouter>
