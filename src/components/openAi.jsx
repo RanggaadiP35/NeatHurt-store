@@ -6,6 +6,7 @@ import '../components/css/openai.css';
 
 function OpenAi() {
     const {VITE_OPEN_AI_API_KEY} = import.meta.env;
+    
     const configuration = new Configuration({
         apiKey: VITE_OPEN_AI_API_KEY,
     });
