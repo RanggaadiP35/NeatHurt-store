@@ -5,8 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/css/openai.css';
 
 function OpenAi() {
+    const {VITE_OPEN_AI_API_KEY} = import.meta.env;
     const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: VITE_OPEN_AI_API_KEY,
     });
 
     const openAi = new OpenAIApi(configuration);
