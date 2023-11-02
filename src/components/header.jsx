@@ -5,7 +5,7 @@ import { API_URL } from '../utils/constans';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import gambar from '../assets/images/NeatHurt21.png';
 import cart from '../assets/images/cart.png';
@@ -27,7 +27,7 @@ const Header = () => {
     }
 
     useEffect(() => {
-        fetchData(); // Panggil fetchData saat komponen dimuat
+        fetchData(); 
     }, []);
 
     const firebaseConfig = {
@@ -43,14 +43,11 @@ const Header = () => {
     const auth = getAuth(app);
 
     useEffect(() => {
-        // Saat pengguna login atau komponen dimuat
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // Dapatkan nama pengguna dari profil pengguna
                 const displayName = user.email
                 setIsLoggedIn(true);
                 if (displayName) {
-                    // Jika nama pengguna tersedia, set ke state
                     setUserName(displayName);
                 }
             } else {
@@ -61,17 +58,6 @@ const Header = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             // Pengguna telah login
-    //             setIsLoggedIn(true);
-    //         } else {
-    //             // Pengguna belum login
-    //             setIsLoggedIn(false);
-    //         }
-    //     });
-    // }, []);
     return (
         <header>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">

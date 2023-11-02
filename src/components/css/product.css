@@ -36,8 +36,9 @@ h2 {
 
 .size {
     display: flex;
-    justify-content: end;
-    margin: 0 21px 0px 0px;
+    justify-content: center;
+    gap: 7rem;
+    /* margin: 0 21px 0px 0px;*/
 }
 
 .a-product {

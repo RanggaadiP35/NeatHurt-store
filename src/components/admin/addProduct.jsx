@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
 import { Widget } from "@uploadcare/react-widget";
+import { API_URL } from '../../utils/constans';
 
-import { Alert } from "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/admin.css'
 
@@ -12,19 +11,7 @@ import Sidebar from "./sidebar";
 
 const AddProduct = () => {
 
-    const API_URL = 'https://652808c8931d71583df1c625.mockapi.io/list-product';
     const navigate = useNavigate();
-    const [imageFile, setImage] = useState('')
-
-    // const setImg = (event) => {
-    //     setFile(event.target.files[0])
-    //     // console.log(setFile);
-    // }
-
-    // const imageUploade = (e) => {
-    //     const file = e.target.files[0];
-    //     setImage(file)
-    // }
 
     const [data, setData] = useState({
         name: "",
@@ -60,7 +47,7 @@ const AddProduct = () => {
             image: data.image,
         };
 
-        axios.post("https://652808c8931d71583df1c625.mockapi.io/list-product", userData)
+        axios.post(API_URL+"/list-product", userData)
             .then((response) => {
                 console.log(response)
                 alert('Berhasil menambahkan produk');

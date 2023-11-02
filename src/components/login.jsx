@@ -47,13 +47,12 @@ function Login() {
     }, []);
 
     const handleLogout = () => {
-        signOut(auth) // Memanggil metode signOut
+        signOut(auth)
             .then(() => {
                 alert('Anda telah logout')
                 navigate('/User');
             })
             .catch((error) => {
-                // Penanganan kesalahan jika logout gagal
                 console.error('Gagal logout:', error);
             });
     };
@@ -93,7 +92,6 @@ function Login() {
             ) : (
                 <button className='btn-login' onClick={handleLogin}>LOGIN</button>
             )}
-            {/* <button className='btn-login' onClick={handleLogin}>LOGIN</button> */}
         </div>
     );
 }

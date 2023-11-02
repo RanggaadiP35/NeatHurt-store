@@ -1,12 +1,10 @@
 import './css/cart.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import gambar from '../assets/images/tshirt.jpeg';
 import remove from '../assets/images/remove.png';
 
 import { API_URL } from '../utils/constans';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 
@@ -18,7 +16,7 @@ const Cart = () => {
             axios.get(API_URL + "/cart")
                 .then((response) => {
                     setData(response.data);
-                    // console.log(response.data);
+                    console.log(response);
                 })
                 .catch((error) => {
                     console.error('Kesalahan:', error);
@@ -36,7 +34,6 @@ const Cart = () => {
                 .then((response) => {
                     if (response.status === 200) {
                         const updatedItems = data.filter((item) => item.id !== itemId);
-                        // console.log(updatedItems);
                         setData(updatedItems);
                         console.log('Entri berhasil dihapus');
                     }
@@ -73,6 +70,21 @@ const Cart = () => {
         });
     }, []);
 
+    const handleCheckout = (itemId) => {
+        axios.delete(API_URL + `cart/${itemId}`)
+        .then((response) => {
+            if (response.status === 200) {
+                const updatedItems = data.filter((item) => item.id !== itemId);
+                setData(updatedItems);
+                alert('Berhasil checkout produk');
+                navigate('/');
+            }
+        })
+        .catch((error) => {
+            console.error('Gagal menghapus entri:', error);
+        });
+    };
+
     return (
         <>
             <div className='body-cart'>
@@ -103,7 +115,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                     ))}
-                                    <button className='button-cart mt-3'>CHECK OUT</button>
+                                    <button className='button-cart mt-3' onClick={() => handleCheckout(item.id)}>CHECK OUT</button>
                                 </div>
                             )
                             }

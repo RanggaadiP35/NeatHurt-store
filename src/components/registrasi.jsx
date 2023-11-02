@@ -35,7 +35,6 @@ function Register() {
     return (
         <div className='page-login'>
             <div className='text-login'>
-                {/* <h3>Welcome Back</h3> */}
                 <h4>Register</h4>
             </div>
             <input

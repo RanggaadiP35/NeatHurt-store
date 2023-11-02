@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { Widget } from "@uploadcare/react-widget";
+import { API_URL } from "../../utils/constans";
 
-import { Alert } from "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/admin.css'
 
@@ -22,18 +22,11 @@ const EditProduct = () => {
         price: "",
         image:"",
     })
-
-    const [selectedFile, setFile] = useState(null)
-
-    const setImg = (event) => {
-        setFile(event.target.files[0])
-        // console.log(setFile);
-    }
     
     useEffect(() => {
-        axios.get(`https://652808c8931d71583df1c625.mockapi.io/list-product/${itemId}`)
+        axios.get(API_URL+`/list-product/${itemId}`)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 setData(response.data);
             })
             .catch((error) => {
@@ -66,7 +59,7 @@ const EditProduct = () => {
             image: data.image,
         };
 
-        axios.put(`https://652808c8931d71583df1c625.mockapi.io/list-product/${itemId}`, userData)
+        axios.put(API_URL+`/list-product/${itemId}`, userData)
             .then((response) => {
                 console.log(response)
                 alert('Berhasil edit produk');

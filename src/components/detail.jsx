@@ -7,6 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { API_URL } from '../utils/constans';
 
 const ProductDetail = () => {
     const [selectedSize, setSelectedSize] = useState(null);
@@ -39,9 +40,8 @@ const ProductDetail = () => {
     });
 
     useEffect(() => {
-        axios.get(`https://652808c8931d71583df1c625.mockapi.io/list-product/${itemId}`)
+        axios.get(API_URL+`/list-product/${itemId}`)
             .then((response) => {
-                console.log(response);
                 setData(response.data);
             })
             .catch((error) => {
@@ -77,7 +77,7 @@ const ProductDetail = () => {
 
         if (!isLoggedIn) {
             alert('Anda harus login terlebih dahulu untuk menambahkan produk ke keranjang');
-            navigate('/User'); // Anda bisa mengarahkan pengguna ke halaman login
+            navigate('/User'); 
             return;
         }
 
@@ -90,7 +90,7 @@ const ProductDetail = () => {
             quantity: quantity
         };
 
-        axios.post("https://652808c8931d71583df1c625.mockapi.io/cart", userData)
+        axios.post(API_URL+"/cart", userData)
             .then((response) => {
                 console.log(response)
                 alert('Berhasil menambahkan produk');
